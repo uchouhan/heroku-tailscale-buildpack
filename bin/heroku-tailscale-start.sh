@@ -43,6 +43,12 @@ else
   do
     log "Waiting for 5s for Tailscale to start"
     sleep 5
+    retry_count=$((retry_count + 1))
+    if [[ $retry_count -gt $max_retries ]]; then
+      log "Tailscale failed to start after $max_retries retries"
+      # Handle failure, e.g., send an alert, exit the script, or retry later
+      exit 1
+    fi
   done
 
   export ALL_PROXY=socks5://localhost:1055/
