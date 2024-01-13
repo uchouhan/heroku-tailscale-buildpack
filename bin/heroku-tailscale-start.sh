@@ -36,10 +36,8 @@ else
   until tailscale up \
     --authkey=${TAILSCALE_AUTH_KEY} \
     --hostname="$tailscale_hostname" \
-    --accept-dns=${TAILSCALE_ACCEPT_DNS:-true} \
-    --accept-routes=${TAILSCALE_ACCEPT_ROUTES:-true} \
-    --advertise-exit-node=${TAILSCALE_ADVERTISE_EXIT_NODE:-false} \
-    --shields-up=${TAILSCALE_SHIELDS_UP:-false}
+    --accept-dns \
+    --accept-routes
   do
     log "Waiting for 5s for Tailscale to start"
     sleep 5
