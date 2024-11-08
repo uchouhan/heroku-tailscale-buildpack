@@ -40,6 +40,7 @@ else
     --accept-routes=${TAILSCALE_ACCEPT_ROUTES:-true} \
     --advertise-exit-node=${TAILSCALE_ADVERTISE_EXIT_NODE:-false} \
     --shields-up=${TAILSCALE_SHIELDS_UP:-false}
+    --timeout=90s
   do
     log "Waiting for 5s for Tailscale to start"
     sleep 5
